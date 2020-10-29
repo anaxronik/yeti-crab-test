@@ -1,0 +1,4 @@
+email: yeti-crab-test@mail.ru
+password: Abc12347890
+
+dashboard: https://cloud.mongodb.com/v2/5f983e211e714518fda3ec14#clusters
