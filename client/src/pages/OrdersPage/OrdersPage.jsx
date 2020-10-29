@@ -49,10 +49,6 @@ export const OrdersPage = () => {
 
   return (
     <div>
-      <label>
-        <input type="checkbox" />
-        <span>Red</span>
-      </label>
       <form className="">
         <div className="row">
           <div className="input-field ">
