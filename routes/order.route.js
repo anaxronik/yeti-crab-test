@@ -10,7 +10,7 @@ const orderExample = {
   name: 'name',
   phoneNumber: 'phoneNumber',
   comment: 'comment',
-  atiCode: 'atiCode'
+  atiCode: 'atiCode',
 }
 
 // /api/order/create
@@ -23,10 +23,10 @@ router.post('/create', async (req, res) => {
       name: req.body.name,
       phoneNumber: req.body.phoneNumber,
       comment: req.body.comment,
-      atiCode: req.body.atiCode
+      atiCode: req.body.atiCode,
     })
     await order.save()
-    res.status(201).json({ message: 'Новая заяка созданна', id: order._id })
+    res.status(201).json({ message: 'Новая заявка созданна', id: order._id })
     console.log('==> Create new order DONE')
   } catch (error) {
     res.status(500).json({ message: 'Error please try again later.' })
@@ -47,10 +47,10 @@ router.post('/edit/:id', async (req, res) => {
         phoneNumber: req.body.phoneNumber,
         comment: req.body.comment,
         atiCode: req.body.atiCode,
-        lastEditDate: Date.now()
+        lastEditDate: Date.now(),
       }
     )
-    res.status(201).json({ message: 'Изменения сохранены' })
+    res.json({ message: 'Изменения сохранены' })
   } catch (error) {
     res.status(500).json({ message: 'Error please try again later.' })
     console.log('==x ', error.message)
@@ -62,9 +62,8 @@ router.delete('/delete/:id', async (req, res) => {
   const id = req.params.id
   console.log('==> New request on /api/order/delete/:id = ', id)
   try {
-    // await Order.find({ _id: id }).remove().exec()
     await Order.deleteOne({ _id: id })
-    res.status(201).json({ message: 'order been delete' })
+    res.status(201).json({ message: 'Заявка удалена' })
     console.log('===> Delete order DONE')
   } catch (error) {
     res.status(500).json({ message: 'Error please try again later.' })
